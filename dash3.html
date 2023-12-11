@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>E-Shopping Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+     
+
+        <nav class="col-md-2 d-md-block bg-light sidebar">
+            <!-- Button for mobile devices -->
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+            </button>
+        
+            <!-- Navigation bar for large screens -->
+            <div class="collapse navbar-collapse d-lg-block" id="sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact_us.html">
+                                Contact Us
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+
+     
+
+      <!-- Main content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <h2 class="mt-2">E-Shopping Dashboard</h2>
+        
+        <!-- Chart -->
+        <div class="card mt-3">
+          <div class="card-header">
+            Sales Chart
+          </div>
+          <div class="card-body">
+            <canvas id="salesChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="card mt-3">
+          <div class="card-header">
+            Product Distribution
+          </div>
+          <div class="card-body">
+            <canvas id="pieChart" width="400" height="200"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Chart Scripts -->
+  <script>
+    // Sample data for charts
+    var salesData = [10, 20, 30, 40, 50, 60, 70];
+    var productDistributionData = [25, 30, 15, 20, 10];
+
+    // Sales Chart
+    var salesChart = new Chart(document.getElementById('salesChart').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+          label: 'Sales',
+          data: salesData,
+          borderColor: 'blue',
+          borderWidth: 2,
+          fill: false
+        }]
+      }
+    });
+
+    // Pie Chart
+    var pieChart = new Chart(document.getElementById('pieChart').getContext('2d'), {
+      type: 'pie',
+      data: {
+        labels: ['Electronics', 'Clothing', 'Books', 'Home & Kitchen', 'Toys'],
+        datasets: [{
+          data: productDistributionData,
+          backgroundColor: ['red', 'blue', 'green', 'orange', 'purple']
+        }]
+      }
+    });
+  </script>
+</body>
+
+</html>
